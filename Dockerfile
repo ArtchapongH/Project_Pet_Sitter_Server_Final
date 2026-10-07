@@ -12,5 +12,5 @@ RUN useradd --system --uid 10001 app
 COPY --from=build --chown=app:app /app/target/Pet_Sitter-0.0.1-SNAPSHOT.jar /app/app.jar
 USER app
 
-EXPOSE 8081
+EXPOSE 10000
 ENTRYPOINT ["java", "-XX:MaxRAMPercentage=75.0", "-jar", "/app/app.jar"]

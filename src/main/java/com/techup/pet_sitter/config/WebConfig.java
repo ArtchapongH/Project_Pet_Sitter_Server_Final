@@ -22,6 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
                         Arrays.stream(allowedOriginPatterns.split(","))
                 )
                 .map(String::trim)
+                .map(origin -> origin.replaceAll("/+$", ""))
                 .filter(origin -> !origin.isEmpty())
                 .distinct()
                 .toArray(String[]::new);
