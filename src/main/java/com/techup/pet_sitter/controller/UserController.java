@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@PreAuthorize("@adminAccess.isAdmin(authentication)")
 @RequestMapping("/api/user")
 public class UserController {
 

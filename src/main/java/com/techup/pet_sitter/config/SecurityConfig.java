@@ -28,6 +28,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/health").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/sitters", "/api/sitters/**", "/api/locations").permitAll()
+                        .requestMatchers("/api/admin/**", "/api/sitterprofile/**", "/api/reports/**", "/api/reviews/**",
+                                "/api/user/**", "/api/bookings/admin/**", "/api/locations/**").permitAll()
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().denyAll())
                 .oauth2ResourceServer(oauth -> oauth.jwt(Customizer.withDefaults()));

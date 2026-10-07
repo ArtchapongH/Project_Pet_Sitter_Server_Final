@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.UUID;
 
 @RestController
-@PreAuthorize("@adminAccess.isAdmin(authentication)")
 @RequestMapping("/api/sitterprofile")
 public class SitterProfileController {
 

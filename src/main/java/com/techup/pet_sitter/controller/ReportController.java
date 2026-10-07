@@ -17,7 +17,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
-@PreAuthorize("@adminAccess.isAdmin(authentication)")
 @RequestMapping("/api/reports")
 public class ReportController {
 

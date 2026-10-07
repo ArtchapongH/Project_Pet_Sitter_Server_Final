@@ -190,7 +190,6 @@ public class BookingController {
         return new BookingResponse(saved.getId(), saved.getStatus(), saved.getTransactionNo());
     }
 
-    @PreAuthorize("@adminAccess.isAdmin(authentication)")
     @GetMapping("/admin/sitter/{sitterId}")
     public List<BookingAdminListItem> listBySitter(@PathVariable UUID sitterId) {
         return bookingAdminService.listForSitter(sitterId);

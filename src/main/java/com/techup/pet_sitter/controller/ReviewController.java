@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@PreAuthorize("@adminAccess.isAdmin(authentication)")
 @RequestMapping("/api/reviews")
 public class ReviewController {
 

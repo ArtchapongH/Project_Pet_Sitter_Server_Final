@@ -151,10 +151,16 @@ public class SitterProfileService {
                 .map(SitterPetType::getPetType)
                 .collect(Collectors.toList());
 
+        // Live gallery photos (joins sitter_profiles.user_id = sitter_photos.sitter_id); used for statuses other than the waiting ones
+        List<String> photoUrls = sitterPhotoRepository.findBySitter_UserIdOrderBySortOrder(id).stream()
+                .map(SitterPhoto::getPhotoUrl)
+                .collect(Collectors.toList());
+
         SitterProfileDetailResponse response = new SitterProfileDetailResponse();
         response.setSitterProfile(sitterProfile);
         response.setUser(user);
         response.setPetTypes(petTypes);
+        response.setPhotoUrls(photoUrls);
         return response;
     }
 
@@ -162,6 +168,7 @@ public class SitterProfileService {
         private SitterProfile sitterProfile;
         private User user;
         private List<PetType> petTypes;
+        private List<String> photoUrls;
 
         public SitterProfile getSitterProfile() {
             return sitterProfile;
@@ -185,6 +192,14 @@ public class SitterProfileService {
 
         public void setPetTypes(List<PetType> petTypes) {
             this.petTypes = petTypes;
+        }
+
+        public List<String> getPhotoUrls() {
+            return photoUrls;
+        }
+
+        public void setPhotoUrls(List<String> photoUrls) {
+            this.photoUrls = photoUrls;
         }
     }
 

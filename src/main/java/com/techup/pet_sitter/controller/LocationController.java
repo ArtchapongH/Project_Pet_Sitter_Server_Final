@@ -40,7 +40,6 @@ public class LocationController {
     }
 
     @PostMapping
-    @PreAuthorize("@adminAccess.isAdmin(authentication)")
     public Location createLocation(
             @RequestBody Location location
     ) {
